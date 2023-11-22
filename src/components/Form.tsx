@@ -154,7 +154,7 @@ function Form() {
                             before:left-0 
                             before:h-full
                             before:w-[900px]
-                            before:bg-[url(./src/assets/bg.jpg)] 
+                            before:bg-[url("https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=600")] 
                             before:bg-cover 
                             before:bg-center 
                             before:bg-no-repeat

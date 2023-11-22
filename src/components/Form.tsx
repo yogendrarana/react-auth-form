@@ -197,8 +197,8 @@ function Form() {
                             onClick={handleToggle} 
                             className="h-[3.5rem] w-[10rem] bg-transparent overflow-hidden relative border rounded-full"
                         >
-                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-transform ease duration-[1.5s] ${variant==="LOGIN" ? "transform translate-y-0" : "transform translate-y-[3rem]"}`}>REGISTER</span>
-                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-transform ease duration-[1.5s] ${variant==="LOGIN" ? "transform -translate-y-[3rem]" : "transform translate-y-0"}`}>LOGIN</span>
+                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-transform ease duration-[1.5s] ${variant==="LOGIN" ? "transform translate-y-0" : "transform translate-y-[3rem]"}`}>SIGN UP</span>
+                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-transform ease duration-[1.5s] ${variant==="LOGIN" ? "transform -translate-y-[3rem]" : "transform translate-y-0"}`}>SIGN IN</span>
                         </button>
                     </div>
 

@@ -154,7 +154,7 @@ function Form() {
                             before:left-0 
                             before:h-full
                             before:w-[900px]
-                            before:bg-[url(./src/assets/bg.jpg)] 
+                            before:bg-[url(../assets/bg.jpg)] 
                             before:bg-cover 
                             before:bg-center 
                             before:bg-no-repeat

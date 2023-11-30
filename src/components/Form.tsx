@@ -151,7 +151,7 @@ function Form() {
                         ${variant === "REGISTER" ? "transform -translate-x-[60rem]" : "transform -translate-x-0"}
 
                         md:pl-0
-                    sm:w-full
+                        sm:w-full
                     `}
                 >
 
@@ -171,7 +171,7 @@ function Form() {
                             before:left-0 
                             before:h-full
                             before:w-[90rem]
-                            before:bg-formImage 
+                            before:bg-[url("https://images.pexels.com/photos/192136/pexels-photo-192136.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")]
                             before:bg-cover 
                             before:bg-center 
                             before:bg-no-repeat

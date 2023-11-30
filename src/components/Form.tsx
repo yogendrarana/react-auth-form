@@ -90,7 +90,7 @@ function Form() {
                         h-full w-[60rem] p-[5rem 3rem] 
                         relative 
                         flex flex-col justify-center items-center gap-[3rem]
-                        transition-transform ease duration-[1.5s]
+                        transition-all ease-linear duration-[1s]
                         ${variant === "REGISTER" ? "transform translate-x-[60rem]" : "transform translate-x-0"}
                     `}
                 >
@@ -134,7 +134,7 @@ function Form() {
                         h-full w-[900px] pl-[300px] 
                         overflow-hidden bg-white
                         absolute top-0 left-[60rem]
-                        transition-transform ease duration-[1.5s]
+                        transition-all ease-linear duration-[1s]
                         ${variant === "REGISTER" ? "transform -translate-x-[60rem]" : "transform -translate-x-0"}
                     `}
                 >
@@ -154,11 +154,12 @@ function Form() {
                             before:left-0 
                             before:h-full
                             before:w-[900px]
-                            before:bg-[url("https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=600")] 
+                            before:bg-formImage 
                             before:bg-cover 
                             before:bg-center 
                             before:bg-no-repeat
-                            before:duration-[1.5s] ease
+                            before:duration-[1s]
+                            before:ease-linear
                             ${variant === "LOGIN" ? "before:transform before:-translate-x-[60rem]" : "before:transform before:-translate-x-0"}
                         `}
                     >
@@ -169,7 +170,7 @@ function Form() {
                                 absolute left-0 top-[5rem] 
                                 flex flex-col gap-[10px]
                                 z-[10] 
-                                transition-transform ease duration-[1.5s]
+                                transition-all ease-linear duration-[1s]
                                 ${variant === "LOGIN" ? "transform translate-x-0" : "transform translate-x-[400px]"}
                             `}
                         >
@@ -183,7 +184,7 @@ function Form() {
                                 absolute left-0 top-[5rem] 
                                 flex flex-col gap-[10px]
                                 z-[10] 
-                                transition-transform ease duration-[1.5s]
+                                transition-all ease-linear duration-[1s]
                                 ${variant === "LOGIN" ? "transform -translate-x-[400px]" : "transform translate-x-0"}
                             `}
                         >
@@ -197,8 +198,8 @@ function Form() {
                             onClick={handleToggle} 
                             className="h-[3.5rem] w-[10rem] bg-transparent overflow-hidden relative border rounded-full"
                         >
-                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-transform ease duration-[1.5s] ${variant==="LOGIN" ? "transform translate-y-0" : "transform translate-y-[3rem]"}`}>SIGN UP</span>
-                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-transform ease duration-[1.5s] ${variant==="LOGIN" ? "transform -translate-y-[3rem]" : "transform translate-y-0"}`}>SIGN IN</span>
+                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-all ease-linear duration-[1s] ${variant==="LOGIN" ? "transform translate-y-0" : "transform translate-y-[3rem]"}`}>SIGN UP</span>
+                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-all ease-linear duration-[1s] ${variant==="LOGIN" ? "transform -translate-y-[3rem]" : "transform translate-y-0"}`}>SIGN IN</span>
                         </button>
                     </div>
 
@@ -209,7 +210,7 @@ function Form() {
                             h-full w-[60rem] p-[5rem 3rem] 
                             relative 
                             flex flex-col justify-center items-center gap-[3rem] 
-                            transition-transform ease duration-[1.5s]
+                            transition-all ease-linear duration-[1s]
                             ${variant === "LOGIN" ? "transform -translate-x-[900px]" : "transform -translate-x-0"}
                         `}
                     >

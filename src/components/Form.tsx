@@ -1,18 +1,15 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 function Form() {
     const [variant, setVariant] = useState("LOGIN");
 
-    const [loginData, setLoginData] = useState({email: '', password: ''});
-    const [loginError, setLoginError] = useState({emailError: '', passwordError: ''});
+    const [loginData, setLoginData] = useState({ email: '', password: '' });
+    const [loginError, setLoginError] = useState({ emailError: '', passwordError: '' });
 
-    const [registerData, setRegisterData] = useState({email: '', password: '', confirmPassword: ''});
-    const [registerError, setRegisterError] = useState({emailError: '', passwordError: '', confirmPasswordError: ''});
+    const [registerData, setRegisterData] = useState({ email: '', password: '', confirmPassword: '' });
+    const [registerError, setRegisterError] = useState({ emailError: '', passwordError: '', confirmPasswordError: '' });
 
-    // use auto animate
-    const [parent, ] = useAutoAnimate(/* optional config */)
 
     // handle toggle
     const handleToggle = () => {
@@ -21,12 +18,12 @@ function Form() {
 
     // handle login data change
     const handleLoginDataChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setLoginData((prev) => ({...prev, [e.target.name]: e.target.value}));
+        setLoginData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     }
 
     // handle register data change
     const handleRegisterDataChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setRegisterData((prev) => ({...prev, [e.target.name]: e.target.value}));
+        setRegisterData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     }
 
 
@@ -34,15 +31,15 @@ function Form() {
     const handleSubmit = () => {
         if (variant === "LOGIN") {
 
-            setLoginError({emailError: '', passwordError: ''});
+            setLoginError({ emailError: '', passwordError: '' });
 
             if (loginData.email === "" || loginData.password === "") {
                 if (loginData.email === "") {
-                    setLoginError((prev) => ({...prev, emailError: "Email is required"}));
+                    setLoginError((prev) => ({ ...prev, emailError: "Email is required" }));
                 }
-    
+
                 if (loginData.password === "") {
-                    setLoginError((prev) => ({...prev, passwordError: "Password is required"}));
+                    setLoginError((prev) => ({ ...prev, passwordError: "Password is required" }));
                 }
 
                 return;
@@ -50,31 +47,31 @@ function Form() {
 
 
             toast.success("Logged in successfully!");
-        } 
+        }
 
 
-        if (variant === "REGISTER"){
+        if (variant === "REGISTER") {
             console.log(registerData);
-            setRegisterError({emailError: '', passwordError: '', confirmPasswordError: ''});
+            setRegisterError({ emailError: '', passwordError: '', confirmPasswordError: '' });
 
             if (registerData.email === "" || registerData.password === "" || registerData.confirmPassword === "") {
                 if (registerData.email === "") {
-                    setRegisterError((prev) => ({...prev, emailError: "Email is required"}));
+                    setRegisterError((prev) => ({ ...prev, emailError: "Email is required" }));
                 }
-    
+
                 if (registerData.password === "") {
-                    setRegisterError((prev) => ({...prev, passwordError: "Password is required"}));
+                    setRegisterError((prev) => ({ ...prev, passwordError: "Password is required" }));
                 }
 
                 if (registerData.confirmPassword === "") {
-                    setRegisterError((prev) => ({...prev, confirmPasswordError: "Confirm password is required"}));
+                    setRegisterError((prev) => ({ ...prev, confirmPasswordError: "Confirm password is required" }));
                 }
 
                 return;
             }
 
             if (registerData.password !== registerData.confirmPassword) {
-                setRegisterError((prev) => ({...prev, confirmPasswordError: "Password do not match"}));
+                setRegisterError((prev) => ({ ...prev, confirmPasswordError: "Password do not match" }));
                 return;
             }
 
@@ -83,7 +80,7 @@ function Form() {
     }
 
     return (
-        <div className="h-[100vh] w-[100vw] flex justify-center items-center  bg-slate-300">
+        <div className="h-[100vh] w-[100vw] flex justify-center items-center bg-slate-300">
             <div className="bg-white h-[55rem] w-[90rem] relative overflow-hidden ">
                 <form
                     className={`
@@ -94,10 +91,9 @@ function Form() {
                         ${variant === "REGISTER" ? "transform translate-x-[60rem]" : "transform translate-x-0"}
                     `}
                 >
-
                     <h2 className="text-[2.5rem]">Sign In</h2>
 
-                    <label ref={parent} className="w-[31rem] flex flex-col items-center">
+                    <label className="w-[31rem] flex flex-col items-center">
                         <input
                             type="text"
                             placeholder="Email"
@@ -107,10 +103,10 @@ function Form() {
                             className="w-full p-[10px] text-[1.25rem] text-center border-b outline-none placeholder:text-[1.5rem] focus:placeholder:opacity-0 linear duration-200"
                         />
 
-                        {loginError.emailError && <span className="mt-[1rem] text-red-500 text-[1.25rem]">{loginError.emailError}</span>}
+                        <span className={`${loginError.emailError ? "h-[2rem]" : "h-0"} mt-[1rem] text-red-500 text-[1.25rem] duration-[0.25s]`}>{loginError.emailError}</span>
                     </label>
 
-                    <label ref={parent} className="w-[31rem] flex flex-col items-center">
+                    <label className="w-[31rem] flex flex-col items-center">
                         <input
                             type="password"
                             placeholder="Password"
@@ -120,7 +116,7 @@ function Form() {
                             className="w-full p-[10px] text-[1.25rem] text-center border-b outline-none placeholder:text-[1.5rem] focus:placeholder:opacity-0 linear duration-200"
                         />
 
-                        {loginError.passwordError && <span className="mt-[1rem] text-red-500 text-[1.25rem]">{loginError.passwordError}</span>}
+                        <span className={` ${loginError.passwordError ? "h-[2rem]" : "h-0"} mt-[1rem] text-red-500 text-[1.25rem] duration-[0.25s]`}>{loginError.passwordError}</span>
                     </label>
 
                     <button onClick={handleSubmit} type="button" className="w-[31rem] px-[3rem] py-[8px] text-[1.5rem] bg-blue-500 text-white rounded-full">Sign In</button>
@@ -193,13 +189,13 @@ function Form() {
                         </div>
 
 
-                        <button 
-                            type="button" 
-                            onClick={handleToggle} 
+                        <button
+                            type="button"
+                            onClick={handleToggle}
                             className="h-[3.5rem] w-[10rem] bg-transparent overflow-hidden relative border rounded-full"
                         >
-                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-all ease-linear duration-[1s] ${variant==="LOGIN" ? "transform translate-y-0" : "transform translate-y-[3rem]"}`}>SIGN UP</span>
-                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-all ease-linear duration-[1s] ${variant==="LOGIN" ? "transform -translate-y-[3rem]" : "transform translate-y-0"}`}>SIGN IN</span>
+                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-all ease-linear duration-[1s] ${variant === "LOGIN" ? "transform translate-y-0" : "transform translate-y-[3rem]"}`}>SIGN UP</span>
+                            <span className={`absolute left-0 top-0 right-0 bottom-0 text-[1.5rem] grid place-items-center text-white transition-all ease-linear duration-[1s] ${variant === "LOGIN" ? "transform -translate-y-[3rem]" : "transform translate-y-0"}`}>SIGN IN</span>
                         </button>
                     </div>
 
@@ -207,7 +203,7 @@ function Form() {
                     {/* register form */}
                     <form
                         className={`
-                            h-full w-[60rem] p-[5rem 3rem] 
+                            h-full w-[60rem] px-[5rem] py-[3rem] 
                             relative 
                             flex flex-col justify-center items-center gap-[3rem] 
                             transition-all ease-linear duration-[1s]
@@ -216,7 +212,7 @@ function Form() {
                     >
                         <h2 className="text-[2.5rem]">Sign Up</h2>
 
-                        <label ref={parent} className="w-[31rem] flex flex-col items-center">
+                        <label className="w-[31rem] flex flex-col items-center">
                             <input
                                 type="text"
                                 placeholder="Email Address"
@@ -226,10 +222,10 @@ function Form() {
                                 className="w-full p-[10px] text-[1.25rem] text-center border-b outline-none placeholder:text-[1.5rem] focus:placeholder:opacity-0 linear duration-200"
                             />
 
-                            {registerError.emailError && <span className="mt-[1rem] text-red-500 text-[1.25rem]">{registerError.emailError}</span>}
+                            <span className={` ${registerError.emailError ? "h-[2rem]" : "h-0"} mt-[1rem] text-red-500 text-[1.25rem] duration-[0.25s]`}>{registerError.emailError}</span>
                         </label>
 
-                        <label ref={parent} className="w-[31rem] flex flex-col items-center">
+                        <label className="w-[31rem] flex flex-col items-center">
                             <input
                                 type="password"
                                 placeholder="Create Password"
@@ -239,10 +235,10 @@ function Form() {
                                 className="w-full p-[10px] text-[1.25rem] text-center border-b outline-none placeholder:text-[1.5rem] focus:placeholder:opacity-0 linear duration-200"
                             />
 
-                            {registerError.passwordError && <span className="mt-[1rem] text-red-500 text-[1.25rem]">{registerError.passwordError}</span>}
+                            <span className={` ${registerError.passwordError ? "h-[2rem]" : "h-0"} mt-[1rem] text-red-500 text-[1.25rem] duration-[0.25s]`}>{registerError.passwordError}</span>
                         </label>
 
-                        <label ref={parent} className="w-[31rem] flex flex-col items-center">
+                        <label className="w-[31rem] flex flex-col items-center">
                             <input
                                 type="password"
                                 placeholder="Confirm Password"
@@ -252,7 +248,7 @@ function Form() {
                                 className="w-full p-[10px] text-[1.25rem] text-center border-b outline-none placeholder:text-[1.5rem] focus:placeholder:opacity-0 linear duration-200"
                             />
 
-                            {registerError.confirmPasswordError && <span className="mt-[1rem] text-red-500 text-[1.25rem]">{registerError.confirmPasswordError}</span>}
+                            <span className={` ${registerError.confirmPasswordError ? "h-[2rem]" : "h-0"} mt-[1rem] text-red-500 text-[1.25rem] duration-[0.25s]`}>{registerError.confirmPasswordError}</span>
                         </label>
 
                         <button onClick={handleSubmit} type="button" className="w-[31rem] px-[3rem] py-[8px] text-[1.5rem] bg-blue-500 text-white rounded-full">Sign Up</button>

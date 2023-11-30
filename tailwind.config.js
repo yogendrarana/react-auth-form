@@ -5,10 +5,8 @@ export default {
         "./src/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        content: {
-            backgroundImage: {
-                'formImage': 'url("./src/assets/bg.jpg")',
-            },
+        backgroundImage: {
+            'formImage': 'url("./src/assets/bg.jpg")',
         },
 
         screens: {
